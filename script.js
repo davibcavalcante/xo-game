@@ -3,13 +3,17 @@ const optionsXO = document.querySelectorAll('#option')
 const wrapperGame = document.querySelector('.game-wrapper')
 const body = document.querySelector('body')
 const resetButton = document.querySelector('#reset-btn')
+const gameResetButton = document.querySelector('#game-reset-btn')
 
 const scoreDivX = document.querySelector('.x')
 let scoreX = 0
 const scoreDivO = document.querySelector('.o')
 let scoreO = 0
+const scoreDivDraw = document.querySelector('.draw')
+let scoreDraw = 0
 
 let playAgainButton
+let titleWinner
 let counter = 0
 
 // EVENTS
@@ -22,7 +26,9 @@ function activeEvent() {
     })
 }
 
-resetButton.addEventListener('click', resetGame)
+resetButton.addEventListener('click', allReset)
+
+gameResetButton.addEventListener('click', gameReset)
 
 // FUNCTIONS 
 
@@ -31,9 +37,11 @@ function writeXO(e) {
     if (targetClick.innerText === '') {
         const targetClick = e.target
         if (counter % 2 === 0) {
+            targetClick.classList.add('red')
             targetClick.innerText = 'X'
             counter++
         } else {
+            targetClick.classList.add('blue')
             targetClick.innerText = 'O'
             counter++
         }
@@ -128,6 +136,29 @@ function winner(element1, element2, element3) {
     wrapperGame.classList.add('fade-out')
 
     setTimeout(() => {
+        if (element1.innerText === 'X') {
+            scoreX = scoreX + 1
+            if (scoreX === 5) {
+                scoreX = 0
+                scoreO = 0
+                scoreDraw = 0
+                winScreen('X')
+                updateScore()
+                return
+            }
+            updateScore()
+        } else {
+            scoreO = scoreO + 1
+            if (scoreO === 5) {
+                scoreX = 0
+                scoreO = 0 
+                scoreDraw = 0
+                winScreen('O')
+                updateScore()
+                return
+            }
+            updateScore()
+        }
         playAgainButton = document.createElement('button')
         playAgainButton.innerText = 'Play Again'
         playAgainButton.classList.add('play-again-btn')
@@ -137,13 +168,9 @@ function winner(element1, element2, element3) {
         wrapperGame.classList.add('hide')
         wrapperGame.classList.remove('fade-out')
 
-        if (element1.innerText === 'X') {
-            scoreX = scoreX + 1
-            updateScore()
-        } else {
-            scoreO = scoreO + 1
-            updateScore()
-        }
+        optionsXO.forEach((item) => {
+            item.classList.remove('red', 'blue')
+        })
     }, 650)
 }
 
@@ -156,7 +183,11 @@ function playAgain() {
 
     activeEvent()
 
-    playAgainButton.classList.add('hide-btn')
+    if (titleWinner) {
+        titleWinner.classList.add('hide-all')
+    }
+
+    playAgainButton.classList.add('hide-all')
     wrapperGame.classList.remove('hide')
 }
 
@@ -172,22 +203,54 @@ function draw() {
 
         wrapperGame.classList.add('hide')
         wrapperGame.classList.remove('fade-out')
-        resetButton.classList.add('hide')
+
+        scoreDraw = scoreDraw + 1
+        updateScore()
     }, 650)
 }
 
 function updateScore() {
     scoreDivX.innerText = `X: ${scoreX}`
     scoreDivO.innerText = `O: ${scoreO}`
+    scoreDivDraw.innerText = `Draw: ${scoreDraw}`
 }
 
-function resetGame() {
+function gameReset() {
+    counter = 0
+    optionsXO.forEach((item) => {
+        item.innerText = ''
+        item.classList.remove('win')
+    })
+}
+
+function allReset() {
     counter = 0
     scoreX = 0
     scoreO = 0
+    scoreDraw = 0
     updateScore()
     optionsXO.forEach((item) => {
         item.innerText = ''
         item.classList.remove('win')
+    })
+}
+
+function winScreen(winner) {
+    wrapperGame.classList.add('fade-out')
+
+    setTimeout(() => {
+        playAgainButton = document.createElement('button')
+        playAgainButton.innerText = 'Play Again'
+        playAgainButton.classList.add('play-again-btn')
+        playAgainButton.addEventListener('click', playAgain)
+        body.appendChild(playAgainButton)
+
+        titleWinner = document.createElement('h1')
+        titleWinner.innerText = `${winner} winner!`
+        titleWinner.classList.add('title-winner')
+        body.appendChild(titleWinner)
+
+        wrapperGame.classList.add('hide')
+        wrapperGame.classList.remove('fade-out')
     })
 }

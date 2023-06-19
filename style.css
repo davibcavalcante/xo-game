@@ -16,7 +16,7 @@ section.hide {
     display: none;
 }
 
-.hide-btn {
+.hide-all {
     display: none;
 }
 
@@ -25,7 +25,16 @@ section.hide {
     transition: .8s;
 }
 
+.red {
+    color: red;
+}
+
+.blue {
+    color: rgb(251, 255, 6);
+}
+
 header {
+    color: rgb(0, 247, 255);
     color: white;
     font: normal 2em 'Roboto Mono', Arial, Helvetica, sans-serif;
     text-align: center;
@@ -33,17 +42,19 @@ header {
 }
 
 .scoreboard {
-    font: normal 2em 'Roboto Mono', Arial, Helvetica, sans-serif;
-    background-color: white;
-    width: 98%;
-    padding: 10px;
-    margin-bottom: 20px;
-    border: 4px solid black;
-    border-radius: 50px;
-
+    width: 600px;
     display: flex;
-    justify-content: space-around;
     align-items: center;
+    justify-content: space-between;
+}
+
+.scoreboard > div {
+    font: normal 1.5em 'Roboto Mono', Arial, Helvetica, sans-serif;
+    background-color: white;
+    padding: 10px 50px;
+    margin-bottom: 20px;
+    border: 2px solid black;
+    border-radius: 20px;
 }
 
 .game-wrapper {
@@ -79,7 +90,7 @@ header {
 
 button {
     color: black;
-    font: normal 1em Arial, Helvetica, sans-serif;
+    font: normal 1.5em Arial, Helvetica, sans-serif;
     font-weight: bold;
     text-align: center;
     background-color: white;
@@ -87,8 +98,8 @@ button {
     border: 2px solid rgb(0, 0, 0);
     border-radius: 20px;
 
-    width: 150px;
-    height: 40px;
+    width: 180px;
+    height: 50px;
     margin-top: 20px;
 
     cursor: pointer;
@@ -96,6 +107,13 @@ button {
 
 div.win {
     background-color: rgb(102, 223, 102);
+}
+
+.control-game {
+    width: 80%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
 }
 
 .play-again-btn {
@@ -107,6 +125,20 @@ div.win {
     top: 50%;
     left: 50%;
 
+    transform: translate(-50%, -50%);
+}
+
+.title-winner {
+    color: white;
+    font: normal 5em 'Roboto Mono', Arial, Helvetica, sans-serif;
+    font-weight: bolder;
+    font-variant: small-caps;
+    text-align: center;
+    text-shadow: 3px 3px 0px black;
+
+    position: absolute;
+    top: 40%;
+    left: 50%;
     transform: translate(-50%, -50%);
 }
 
