@@ -1,179 +1,20 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500;600&display=swap');
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
 body {
-    background-color: rgb(46, 115, 161);
-    height: 100vh;
-    position: relative;
-}
-
-section.hide {
-    display: none;
-}
-
-.hide-all {
-    display: none;
-}
-
-.fade-out {
-    opacity: 0;
-    transition: .8s;
-}
-
-.red {
-    color: red;
-}
-
-.yellow {
-    color: rgb(251, 255, 6);
-}
-
-header {
-    color: rgb(0, 247, 255);
-    color: white;
-    font: normal 2em 'Roboto Mono', Arial, Helvetica, sans-serif;
-    text-align: center;
-    text-shadow: 1px 1px 0px black;
+    background-image: linear-gradient(to top, rgb(0, 22, 24), rgb(50, 50, 100));
 }
 
 .scoreboard {
     width: 600px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
 }
 
 .scoreboard > div {
-    font: normal 1.5em 'Roboto Mono', Arial, Helvetica, sans-serif;
-    background-color: white;
     padding: 10px 50px;
-    margin-bottom: 20px;
-    border: 2px solid black;
-    border-radius: 20px;
-}
-
-.game-wrapper {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-}
-
-.row {
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 .row > div {
-    font: normal 5em 'Roboto Mono', Arial, Helvetica, sans-serif;
-
     width: 150px;
     height: 150px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    cursor: pointer;
-}
-
-button {
-    color: black;
-    font: normal 1.5em Arial, Helvetica, sans-serif;
-    font-weight: bold;
-    text-align: center;
-    background-color: white;
-
-    border: 2px solid rgb(0, 0, 0);
-    border-radius: 20px;
-
-    width: 180px;
-    height: 50px;
-    margin-top: 20px;
-
-    cursor: pointer;
-}
-
-div.win {
-    background-color: rgb(102, 223, 102);
 }
 
 .control-game {
-    width: 80%;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-}
-
-.play-again-btn {
-    font-size: 2em;
-    width: 200px;
-    height: 70px;
-
-    position: absolute;
-    top: 50%;
-    left: 50%;
-
-    transform: translate(-50%, -50%);
-}
-
-.title-winner {
-    color: white;
-    font: normal 5em 'Roboto Mono', Arial, Helvetica, sans-serif;
-    font-weight: bolder;
-    font-variant: small-caps;
-    text-align: center;
-    text-shadow: 3px 3px 0px black;
-
-    position: absolute;
-    top: 40%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
-.top-left {
-    border-right: 3px solid black;
-    border-bottom: 3px solid black;
-}
-
-.top-mid {
-    border-bottom: 3px solid black;
-}
-
-.top-right {
-    border-left: 3px solid black;
-    border-bottom: 3px solid black;
-}
-
-.mid-left {
-    border-right: 3px solid black;
-}
-
-.mid-right {
-    border-left: 3px solid black;
-}
-
-.bottom-left {
-    border-right: 3px solid black;
-    border-top: 3px solid black;
-}
-
-.bottom-mid {
-    border-top: 3px solid black;
-}
-
-.bottom-right {
-    border-left: 3px solid black;
-    border-top: 3px solid black;
+    width: 600px;
 }

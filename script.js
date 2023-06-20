@@ -153,18 +153,14 @@ function winner(element1, element2, element3) {
         }
         createPlayAgainButton()
         hideGameWrapper()
-        resetClass('red')
-        resetClass('yellow')
     }, 650)
 }
 
 function playAgain() {
     counter = 0
-    optionsXO.forEach((item) => {
-        item.innerText = ''
-        item.classList.remove('win')
-    })
-
+    resetClass('win')
+    resetClass('yellow')
+    resetClass('red')
     activeEvent()
 
     if (titleWinner) {
@@ -188,29 +184,29 @@ function draw() {
 
 function gameReset() {
     counter = 0
-    resetClass('win')
+    resetClass('red')
+    resetClass('yellow')
 }
 
 function allReset() {
     counter = 0
     resetScores()
     resetClass('win')
+    resetClass('red')
+    resetClass('yellow')
 }
 
 function winScreen(winner) {
     wrapperGame.classList.add('fade-out')
 
     setTimeout(() => {
-        createPlayAgainButton()
-
         titleWinner = document.createElement('h1')
         titleWinner.innerText = `${winner} winner!`
         titleWinner.classList.add('title-winner')
         body.appendChild(titleWinner)
 
+        createPlayAgainButton()
         hideGameWrapper()
-        resetClass('red')
-        resetClass('yellow')
     }, 500)
 }
 
@@ -221,6 +217,7 @@ function resetClass(classRemove) {
         item.innerText = ''
         item.classList.remove(classRemove)
     })
+    console.log(optionsXO)
 }
 
 function updateScore() {
