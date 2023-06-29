@@ -1,0 +1,18 @@
+.scoreboard {
+    width: 400px;
+    margin-bottom: 15px;
+}
+
+.scoreboard > div {
+    padding: 10px 20px;
+}
+
+.row > div {
+    width: 150px;
+    height: 150px;
+}
+
+.control-game {
+    width: 400px;
+    margin-top: 15px;
+}

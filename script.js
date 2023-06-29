@@ -40,7 +40,7 @@ function writeXO(e) {
             targetClick.innerText = 'X'
             counter++
         } else {
-            targetClick.classList.add('yellow')
+            targetClick.classList.add('blue')
             targetClick.innerText = 'O'
             counter++
         }
@@ -157,16 +157,16 @@ function winner(element1, element2, element3) {
 }
 
 function playAgain() {
+    playAgainButton.remove()
     counter = 0
     resetClass('win')
-    resetClass('yellow')
     resetClass('red')
+    resetClass('blue')
     activeEvent()
 
     if (titleWinner) {
         titleWinner.classList.add('hide-all')
     }
-    playAgainButton.classList.add('hide-all')
     wrapperGame.classList.remove('hide')
 }
 
@@ -185,7 +185,7 @@ function draw() {
 function gameReset() {
     counter = 0
     resetClass('red')
-    resetClass('yellow')
+    resetClass('blue')
 }
 
 function allReset() {
@@ -193,21 +193,22 @@ function allReset() {
     resetScores()
     resetClass('win')
     resetClass('red')
-    resetClass('yellow')
+    resetClass('blue')
 }
 
 function winScreen(winner) {
-    wrapperGame.classList.add('fade-out')
-
     setTimeout(() => {
         titleWinner = document.createElement('h1')
-        titleWinner.innerText = `${winner} winner!`
+        titleWinner.innerText = `${winner} are the champion!`
         titleWinner.classList.add('title-winner')
         body.appendChild(titleWinner)
 
-        createPlayAgainButton()
         hideGameWrapper()
-    }, 500)
+        setTimeout(() => {
+            titleWinner.remove()
+            createPlayAgainButton()
+        }, 1200)
+    }, 300)
 }
 
 // RECYCLE FUNCTIONS
