@@ -34,7 +34,6 @@ function activeEvent() {
 function writeXO(e) {
     const targetClick = e.target
     if (targetClick.innerText === '') {
-        const targetClick = e.target
         if (counter % 2 === 0) {
             targetClick.classList.add('red')
             targetClick.innerText = 'X'
