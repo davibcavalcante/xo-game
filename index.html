@@ -1,57 +1,58 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style-mobile.css">
-    <link rel="stylesheet" href="style-queries.css" media="screen  and (min-width: 600px)">
-    <title>XO GAME</title>
+    <link rel="stylesheet" href="style/style.css">
+    <title>XO Game</title>
 </head>
 <body>
-    <section class="game-wrapper">
-        <section class="scoreboard">
-            <div class="x">
-                X: 0
-            </div>
-            <div class="draw">
-                Draw: 0
-            </div>
-            <div class="o">
-                O: 0 
-            </div>
+    <section class="play-again-container">
+        <p class="winner">X is the grand winner.</p>
+        <button class="play-again-btn">Play Again</button>
+    </section>
+    <section class="container">
+        <section class="settings-container">
+            <section class="scoreboard">
+                <p class="x-score score">X: 0</p>
+                <p class="d-score score">D: 0</p>
+                <p class="o-score score">O: 0</p>
+            </section>
+            <section class="controls-container">
+                <section class="timer-container">
+                    <p class="timer">00:00</p>
+                </section>
+                <button class="game-reset-btn">Game Reset</button>
+                <button class="all-reset-btn">All Reset</button>
+            </section>
+            <section class="credits">
+                <p>Developed by 
+                    <strong>
+                        <a href="https://github.com/indigitalprogramming">Indigital Programming</a>
+                    </strong>
+                </p>
+            </section>
         </section>
-        <section class="row">
-            <div id="option"></div>
-
-            <div id="option"></div>
-
-            <div id="option"></div>
-        </section>
-
-        <section class="row">
-            <div id="option"></div>  
-            
-            <div id="option"></div>
-
-            <div id="option"></div>
-        </section>
-
-        <section class="row">
-            <div id="option"></div>
-
-            <div id="option"></div>
-
-            <div id="option"></div>
-        </section>
-        <section class="control-game">
-            <button id="reset-btn">
-                All Reset
-            </button>
-            <button id="game-reset-btn">
-                Reset Game
-            </button>
+        <section class="game-container">
+            <section class="box-row">
+                <div class="box"></div>
+                <div class="box"></div>
+                <div class="box"></div>
+            </section>
+            <section class="box-row">
+                <div class="box"></div>
+                <div class="box"></div>
+                <div class="box"></div>
+            </section>
+            <section class="box-row">
+                <div class="box"></div>
+                <div class="box"></div>
+                <div class="box"></div>
+            </section>
         </section>
     </section>
-    <script src="script.js"></script>
+
+    <script src="js/script.js"></script>
+    <script src="js/resets.js"></script>
 </body>
 </html>
